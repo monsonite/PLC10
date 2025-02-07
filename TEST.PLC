@@ -1,0 +1,45 @@
+/test code for Simple PLC compiler
+/Function : Ouput X HIGH when input X HIGH else output 8 HIGH.
+
+define s1=00000001
+define s2=00000010
+define s3=00000100
+define s4=00001000
+define s5=00010000
+define s6=00100000
+define s7=01000000
+define s8=10000000
+define start=00000000
+
+state start
+   default s8
+state s1
+   default s8
+   if 0000001 s1
+state s2
+   default s8
+   if 0000010 s2
+state s3
+   default s8
+   if 0000100 s3
+state s4
+   default s8
+   if 0001000 s4
+state s5
+   default s8
+   if 0010000 s5
+state s6
+   default s8
+   if 0100000 s6
+state s7
+   default s8
+   if 1000000 s7
+state s8
+   default s8
+   if 0000001 s1
+   if 0000010 s2
+   if 0000100 s3
+   if 0001000 s4
+   if 0010000 s5
+   if 0100000 s6
+   if 1000000 s7
